@@ -1,0 +1,147 @@
+.stt-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.stt-tracks {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.stt-track {
+    display: grid;
+    grid-template-columns: auto 80px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.stt-track:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stt-track-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1DB954;
+    width: 2rem;
+    text-align: center;
+}
+
+.stt-track-artwork {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stt-track-artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stt-track-info {
+    min-width: 0;
+}
+
+.stt-track-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.stt-track-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.stt-track-title a:hover {
+    color: #1DB954;
+}
+
+.stt-track-artist {
+    margin: 0 0 0.25rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stt-track-album {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.stt-track-preview {
+    display: flex;
+    align-items: center;
+}
+
+.stt-track-preview audio {
+    height: 32px;
+}
+
+.stt-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.stt-powered-by a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.stt-powered-by a:hover {
+    text-decoration: underline;
+}
+
+.stt-error {
+    padding: 1rem;
+    background: #fee;
+    border-left: 4px solid #f44;
+    color: #444;
+    margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+    .stt-track {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "rank artwork"
+            "info info"
+            "preview preview";
+        padding: 0.75rem;
+    }
+
+    .stt-track-rank {
+        grid-area: rank;
+    }
+
+    .stt-track-artwork {
+        grid-area: artwork;
+        justify-self: end;
+    }
+
+    .stt-track-info {
+        grid-area: info;
+    }
+
+    .stt-track-preview {
+        grid-area: preview;
+        margin-top: 0.5rem;
+    }
+
+    .stt-track-preview audio {
+        width: 100%;
+    }
+} 

@@ -1,0 +1,56 @@
+.spotify-top-tracks .form-table {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.spotify-top-tracks .form-table th {
+    padding: 20px;
+}
+
+.spotify-top-tracks .form-table td {
+    padding: 15px 20px;
+}
+
+.spotify-top-tracks input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+.spotify-top-tracks .card {
+    max-width: 800px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.spotify-top-tracks .card h2 {
+    margin-top: 0;
+    color: #23282d;
+    font-size: 1.3em;
+}
+
+.spotify-top-tracks .card ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.spotify-top-tracks .card li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.spotify-top-tracks .notice {
+    margin: 20px 0;
+}
+
+.spotify-top-tracks .notice code {
+    background: rgba(0, 0, 0, 0.07);
+    padding: 3px 5px;
+    border-radius: 3px;
+} 
