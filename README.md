@@ -2,6 +2,12 @@
 
 Display your Spotify top tracks on your WordPress site with a beautiful, minimal interface.
 
+## Preview
+
+![Spotify Top Tracks Preview](assets/images/preview.png)
+
+*A sleek, modern interface displaying your favorite Spotify tracks with playback preview functionality.*
+
 ## Features
 
 - Clean and modern design
