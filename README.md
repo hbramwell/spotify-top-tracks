@@ -65,5 +65,5 @@ This plugin is licensed under the GPL v2 or later.
 
 ## Credits
 
-- Built with love by [Your Name]
+- Built with love by Pixam Studio
 - Powered by [Spotify Web API](https://developer.spotify.com/documentation/web-api/) 
