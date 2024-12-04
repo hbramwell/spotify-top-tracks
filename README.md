@@ -2,6 +2,12 @@
 
 Display your Spotify top tracks with a beautiful, minimal interface. This plugin allows you to showcase your most played tracks from Spotify directly on your WordPress site.
 
+## Preview
+
+![Spotify Top Tracks Preview](assets/images/preview.png)
+
+*A sleek, modern interface displaying your favorite Spotify tracks with playback preview functionality.*
+
 ## Features
 
 - 🎵 Display your top Spotify tracks
