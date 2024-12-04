@@ -54,7 +54,7 @@ class SpotifyClient {
      * Get user's top tracks
      *
      * @param int $limit Number of tracks to return
-     * @return array|WP_Error
+     * @return array|WP_Error Array of track data or WP_Error on failure
      */
     public function get_top_tracks($limit = 10) {
         $access_token = $this->get_access_token();
@@ -77,20 +77,39 @@ class SpotifyClient {
         }
 
         $body = json_decode(wp_remote_retrieve_body($response), true);
-        if (!isset($body['items'])) {
+        if (!isset($body['items']) || !is_array($body['items'])) {
             return new \WP_Error('invalid_response', __('Invalid response from Spotify', 'spotify-top-tracks'));
         }
 
+        // Return the raw track data as our template expects it
         return array_map(function($track) {
+            // Ensure all required fields exist and are properly sanitized
             return [
-                'title' => sanitize_text_field($track['name']),
-                'artist' => sanitize_text_field(implode(', ', array_map(function($artist) {
-                    return $artist['name'];
-                }, $track['artists']))),
-                'album' => sanitize_text_field($track['album']['name']),
-                'image' => esc_url($track['album']['images'][0]['url'] ?? ''),
-                'url' => esc_url($track['external_urls']['spotify']),
-                'preview_url' => esc_url($track['preview_url']),
+                'name' => sanitize_text_field($track['name'] ?? ''),
+                'artists' => array_map(function($artist) {
+                    return [
+                        'name' => sanitize_text_field($artist['name'] ?? ''),
+                        'external_urls' => [
+                            'spotify' => esc_url($artist['external_urls']['spotify'] ?? ''),
+                        ],
+                    ];
+                }, $track['artists'] ?? []),
+                'album' => [
+                    'name' => sanitize_text_field($track['album']['name'] ?? ''),
+                    'images' => array_map(function($image) {
+                        return [
+                            'url' => esc_url($image['url'] ?? ''),
+                        ];
+                    }, $track['album']['images'] ?? []),
+                    'external_urls' => [
+                        'spotify' => esc_url($track['album']['external_urls']['spotify'] ?? ''),
+                    ],
+                ],
+                'duration_ms' => absint($track['duration_ms'] ?? 0),
+                'external_urls' => [
+                    'spotify' => esc_url($track['external_urls']['spotify'] ?? ''),
+                ],
+                'preview_url' => esc_url($track['preview_url'] ?? ''),
             ];
         }, $body['items']);
     }
