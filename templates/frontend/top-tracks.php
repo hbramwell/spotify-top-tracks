@@ -18,7 +18,11 @@ if (current_user_can('manage_options')) {
     } elseif (!is_array($tracks)) {
         echo 'Tracks is not an array. Type: ' . gettype($tracks);
     } else {
-        echo 'Number of tracks: ' . count($tracks);
+        echo 'Number of tracks: ' . count($tracks) . "\n";
+        echo 'Requested limit: ' . absint($atts['limit']) . "\n";
+        echo 'Track IDs: ' . implode(', ', array_map(function($track) {
+            return $track['id'] ?? 'no-id';
+        }, $tracks));
     }
     echo ' -->';
 }

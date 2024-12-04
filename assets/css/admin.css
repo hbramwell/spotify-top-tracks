@@ -53,4 +53,96 @@
     background: rgba(0, 0, 0, 0.07);
     padding: 3px 5px;
     border-radius: 3px;
+}
+
+.stt-shortcode-generator {
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.stt-shortcode-generator h3 {
+    margin-top: 0;
+    color: #1d2327;
+}
+
+.stt-shortcode-display {
+    background: #f0f0f1;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stt-shortcode-display code {
+    font-size: 14px;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 3px;
+    color: #1d2327;
+}
+
+/* Settings form styles */
+.form-table th {
+    padding-top: 20px;
+}
+
+.form-table td {
+    padding-top: 15px;
+}
+
+.form-table input[type="password"],
+.form-table input[type="text"] {
+    padding: 8px;
+}
+
+.form-table select {
+    min-width: 200px;
+}
+
+/* Description text styles */
+.description {
+    color: #646970;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Token set indicator */
+.stt-token-set {
+    color: #00a32a;
+    margin-top: 5px;
+}
+
+/* Copy button styles */
+.stt-copy-button {
+    background: #fff;
+    border: 1px solid #0073aa;
+    color: #0073aa;
+    padding: 4px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.stt-copy-button:hover {
+    background: #0073aa;
+    color: #fff;
+}
+
+/* Section header styles */
+.stt-settings-section {
+    border-bottom: 1px solid #ccd0d4;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.stt-settings-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
 } 

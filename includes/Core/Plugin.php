@@ -91,10 +91,24 @@ class Plugin {
 
     /**
      * Render top tracks shortcode
+     * 
+     * @param array $atts Shortcode attributes
+     * @return string Rendered HTML
      */
     public function render_top_tracks($atts) {
+        // Parse shortcode attributes
+        $atts = shortcode_atts([
+            'limit' => get_option('stt_default_track_limit', 10),
+            'time_range' => get_option('stt_default_time_range', 'medium_term'),
+        ], $atts, 'spotify_top_tracks');
+
+        // Validate time_range
+        if (!in_array($atts['time_range'], ['short_term', 'medium_term', 'long_term'])) {
+            $atts['time_range'] = 'medium_term';
+        }
+
         $client = new \SpotifyTopTracks\API\SpotifyClient();
-        $tracks = $client->get_top_tracks();
+        $tracks = $client->get_top_tracks(absint($atts['limit']), $atts['time_range']);
         
         ob_start();
         require STT_PLUGIN_DIR . 'templates/frontend/top-tracks.php';

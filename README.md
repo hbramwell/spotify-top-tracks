@@ -1,75 +1,80 @@
 # Spotify Top Tracks WordPress Plugin
 
-Display your Spotify top tracks on your WordPress site with a beautiful, minimal interface.
-
-## Preview
-
-![Spotify Top Tracks Preview](assets/images/preview.png)
-
-*A sleek, modern interface displaying your favorite Spotify tracks with playback preview functionality.*
+Display your Spotify top tracks with a beautiful, minimal interface. This plugin allows you to showcase your most played tracks from Spotify directly on your WordPress site.
 
 ## Features
 
-- Clean and modern design
-- Responsive layout
-- Audio preview support
-- Easy setup with shortcode
-- Secure API authentication
-- Caching for better performance
+- 🎵 Display your top Spotify tracks
+- ⏱️ Choose between different time ranges (4 weeks, 6 months, or all time)
+- 🔢 Customize the number of tracks to display (1-50)
+- 🔒 Secure storage of Spotify API credentials
+- 📱 Responsive design that looks great on all devices
+- 🎨 Beautiful, minimal interface
+- 🚀 Easy to set up and use
 
 ## Installation
 
 1. Download the plugin zip file
-2. Go to WordPress admin > Plugins > Add New > Upload Plugin
-3. Upload the zip file and activate the plugin
-4. Go to Spotify Tracks in the admin menu to configure
+2. Upload it to your WordPress site through the plugins page
+3. Activate the plugin
+4. Go to "Spotify Tracks" in your WordPress admin menu
 
 ## Configuration
 
-1. Create a new application in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-2. Set the redirect URI to your website URL
-3. Copy the Client ID and Client Secret
-4. Go to WordPress admin > Spotify Tracks
-5. Enter your Spotify API credentials
-6. Follow the authentication process to get your refresh token
+1. Create a Spotify Application:
+   - Visit the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+   - Create a new application
+   - Get your Client ID and Client Secret
+   - Set up your redirect URI (your-site.com/wp-admin/admin.php?page=spotify-top-tracks)
+
+2. Configure the Plugin:
+   - Go to WordPress Admin → Spotify Tracks
+   - Enter your Spotify API credentials (Client ID and Client Secret)
+   - Enter your Refresh Token
+   - Set your preferred default settings:
+     - Number of tracks to display (1-50)
+     - Time range (Last 4 weeks, Last 6 months, or All time)
+
+3. Use the Plugin:
+   - The settings page includes a shortcode generator
+   - Copy the generated shortcode
+   - Paste it into any post or page where you want to display your top tracks
 
 ## Usage
 
-Use the shortcode `[spotify_top_tracks]` to display your top tracks on any page or post.
+Use the shortcode generator in the plugin settings to create your shortcode, or manually create it with these parameters:
 
-Example:
-```php
-[spotify_top_tracks]
 ```
+[spotify_top_tracks limit="20" time_range="medium_term"]
+```
+
+Parameters:
+- `limit`: Number of tracks to display (1-50)
+- `time_range`: Time period for top tracks
+  - `short_term`: Last 4 weeks
+  - `medium_term`: Last 6 months (default)
+  - `long_term`: All time
 
 ## Customization
 
-The plugin uses minimal, clean styling that should work with most themes. You can customize the appearance by adding custom CSS to your theme.
+The plugin includes two CSS files that you can customize:
+- `assets/css/admin.css` - Styles for the admin interface
+- `assets/css/frontend.css` - Styles for the frontend display
 
 ## Security
 
-- All API credentials are stored securely in WordPress options
-- API requests are made server-side
-- Data is properly sanitized and escaped
-- Nonce verification for admin actions
-- Capability checks for administrative functions
-
-## Requirements
-
-- WordPress 5.8 or higher
-- PHP 7.4 or higher
-- Spotify Developer account
-- HTTPS enabled (required for Spotify API)
+- API credentials are stored securely in WordPress options
+- Sensitive tokens are obscured in the admin interface
+- All data is properly sanitized and escaped
 
 ## Support
 
-For support, feature requests, or bug reports, please visit the [plugin support forum](https://wordpress.org/support/plugin/spotify-top-tracks/).
-
-## License
-
-This plugin is licensed under the GPL v2 or later.
+For support, feature requests, or bug reports, please visit the [GitHub repository](https://github.com/pixamstudio/spotify-top-tracks).
 
 ## Credits
 
-- Built with love by Pixam Studio
-- Powered by [Spotify Web API](https://developer.spotify.com/documentation/web-api/) 
+Created by [Pixam Studio](https://pixamstudio.com)
+
+## License
+
+GPL v2 or later

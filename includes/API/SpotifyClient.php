@@ -53,27 +53,44 @@ class SpotifyClient {
     /**
      * Get user's top tracks
      *
-     * @param int $limit Number of tracks to return
+     * @param int $limit Number of tracks to return (1-50)
+     * @param string $time_range Time range: short_term (4 weeks), medium_term (6 months), or long_term (all time)
      * @return array|WP_Error Array of track data or WP_Error on failure
      */
-    public function get_top_tracks($limit = 10) {
+    public function get_top_tracks($limit = 10, $time_range = 'medium_term') {
         $access_token = $this->get_access_token();
         if (is_wp_error($access_token)) {
             return $access_token;
         }
 
-        $response = wp_remote_get(self::API_BASE . '/me/top/tracks', [
+        // Validate time range
+        if (!in_array($time_range, ['short_term', 'medium_term', 'long_term'])) {
+            $time_range = 'medium_term';
+        }
+
+        $response = wp_remote_get(add_query_arg([
+            'limit' => absint($limit),
+            'time_range' => $time_range,
+        ], self::API_BASE . '/me/top/tracks'), [
             'headers' => [
                 'Authorization' => 'Bearer ' . $access_token,
-            ],
-            'body' => [
-                'limit' => $limit,
-                'time_range' => 'short_term',
             ],
         ]);
 
         if (is_wp_error($response)) {
             return $response;
+        }
+
+        // Debug log for administrators
+        if (current_user_can('manage_options')) {
+            error_log('Spotify API Response: ' . print_r([
+                'URL' => add_query_arg([
+                    'limit' => absint($limit),
+                    'time_range' => $time_range,
+                ], self::API_BASE . '/me/top/tracks'),
+                'Response Code' => wp_remote_retrieve_response_code($response),
+                'Response Body' => wp_remote_retrieve_body($response)
+            ], true));
         }
 
         $body = json_decode(wp_remote_retrieve_body($response), true);
