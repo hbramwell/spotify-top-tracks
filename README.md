@@ -75,11 +75,8 @@ The plugin includes two CSS files that you can customize:
 
 ## Support
 
-For support, feature requests, or bug reports, please visit the [GitHub repository](https://github.com/pixamstudio/spotify-top-tracks).
+For support, feature requests, or bug reports, please visit the [GitHub repository](https://github.com/hbramwell/spotify-top-tracks).
 
-## Credits
-
-Created by [Pixam Studio](https://pixamstudio.com)
 
 ## License
 
