@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name: Spotify Top Tracks
- * Plugin URI: https://example.com/spotify-top-tracks
+ * Plugin URI: https://horacebramwell.com/spotify-top-tracks
  * Description: Display your Spotify top tracks with a beautiful, minimal interface
  * Version: 1.0.0
- * Author: Pixam Studio
- * Author URI: https://pixamstudio.com
+ * Author: Horace Bramwell
+ * Author URI: https://horacebramwell.com
  * Text Domain: spotify-top-tracks
  * Domain Path: /languages
- * Requires at least: 5.8
- * Requires PHP: 7.4
+ * Requires at least: 6.0
+ * Requires PHP: 8.0
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
